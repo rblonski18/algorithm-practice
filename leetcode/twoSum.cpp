@@ -5,6 +5,8 @@
 // in the hashmap along with it's index. If it is, we grab the index of this 
 // number, and our current number's index (i) and return those. If there isn't
 // a solution, return empty array. 
+// Time complexity: O(n)
+// Space complexity: O(n)
 
 class Solution {
 public:
