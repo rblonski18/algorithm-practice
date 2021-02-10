@@ -69,3 +69,70 @@ public:
 		return true;
 	}
 }
+
+// 1.3 - Given some string, write a method to replace all spaces
+// with "%20" -> URLify. Assume adequate space for added characters
+// is already in the back of the string. 
+//
+// We pass through the string once to determine the number of spaces
+// in the string. After determining this, we can find out how long 
+// our new string must be. We parse through the string back to front, 
+// and assign letters from their old string into positions of their 
+// new string 
+// Time complexity: O(n)
+// Space complexity: O(1)
+
+class Solution1_3 {
+public:
+	string urlify(string toURL) {
+		int spaces = 0;
+		
+		for(int i = 0; i < toURL.size(); i++) {
+			if(str[i] == ' ') spaces++;
+		}
+
+		int index = toURL.size() + (spaces*2); // # of extra characters from buffer needed. 
+		for(int j = toURL.size()-1; j >= 0; j--) {
+			if(str[i] == ' ') {
+				str[index-1] = '0';
+				str[index-2] = '2';
+				str[index-3] = '%';
+				index = index - 3;
+			} else {
+				str[index-1] = str[j];
+				index--;
+			}
+		}
+	}
+}
+
+// 1.4 - given a string, write a method to determine if it
+// is a permutation of a palindrome. 
+//
+// The idea is to store an array of letter counts. We only 
+// need to check if the letters could make up a palindrome. 
+// There must either be an even number of each letter, or
+// a single count of an odd number of a certain letter, 
+// and the rest even letters. 
+
+class Solution1_4 {
+public: 
+	bool isPermutationOfPalindrome(string word) {
+
+		int charCount[26];
+		bool passedOdd = false;
+
+		for(char c : word) {
+			charCount[c-97]++;
+		}
+
+		for(int i = 0; i < 26; i++) {
+			if(charCount[i] % 2 != 0) {
+				if(passedOdd) return false;
+				else passedOdd = true;
+			}
+		}
+		return true;
+	}
+}
+
