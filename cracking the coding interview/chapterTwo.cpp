@@ -19,8 +19,6 @@ class Solution2_1 {
 		// about that case - how can the first element be a 
 		// duplicate? 
 
-		head -> 1 -> 2 -> 1 -> 2 -> null
-
 		while(head != null) {
 			if(hashmap.find(head.data) != hashmap.end()) { // duplicate
 				runner.next = head.next;
