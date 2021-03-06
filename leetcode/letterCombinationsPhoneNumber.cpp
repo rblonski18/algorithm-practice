@@ -1,3 +1,13 @@
+// Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. 
+// Return the answer in any order.
+//
+// my solution was to find the letter combinations recursively 
+// from the bottom up (empty -> one number letter combinations
+// -> two number letter combinations -> etc.) 
+// runtime: O(3^n) -> runs faster than 100% of other LC 
+// solutions in C++. 
+
+
 class Solution {
 public:
     vector<string> letterCombinations(string digits) {
