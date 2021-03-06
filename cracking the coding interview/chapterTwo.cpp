@@ -21,12 +21,12 @@ class Solution2_1 {
 
 		while(head != null) {
 			if(hashmap.find(head.data) != hashmap.end()) { // duplicate
-				runner.next = head.next;
+				runner->next = head->next;
 			} else {
-				hashmap.insert(runner.next.data);;
+				hashmap.insert(runner->next->data);;
 				runner = head
 			}
-			head = head.next;
+			head = head->next;
 		}
 
 		return head;
@@ -47,8 +47,6 @@ class Solution2_1 {
 // which is the same as the optimal solutions 
 // presented, and it makes more sense to me. 
 
-head -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null __ k=3
-
 class Solution2_2 {
 	int returnKthElement(Node* head, int k) {
 
@@ -58,7 +56,7 @@ class Solution2_2 {
 
 		while(runner != null) {
 			numNodes++;
-			runner = runner.next;
+			runner = runner->next;
 		}
 
 		int elementPosition = numNodes - k;
@@ -68,11 +66,11 @@ class Solution2_2 {
 		runner = head;
 
 		while(elementPosition != 0) {
-			runner = runner.next;
+			runner = runner->next;
 			elementPosition--;
 		}
 
-		return runner.data;
+		return runner->data;
 
 	}
 }
@@ -93,11 +91,11 @@ class Solution2_2 {
 class Solution2_3 {
 	void removeMiddleNode(Node* middle) {
 		if(middle == null) return;
-		if(middle.next == null) {
+		if(middle->next == null) {
 			middle = null;
 			return;
 		}
-		middle.data = middle.next.data;
-		middle.next = middle.next.next;
+		middle->data = middle->next->data;
+		middle->next = middle->next->next;
 	}
 }
